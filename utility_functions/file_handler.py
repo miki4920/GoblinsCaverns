@@ -38,6 +38,6 @@ def read_json(path):
 
 def get_main_path():
     path = Path(__file__).parent
-    while os.path.basename(os.path.normpath(path)) != "D&D":
+    while os.path.basename(os.path.normpath(path)) != "GoblinsCaverns":
         path = path.parent
     return str(path)

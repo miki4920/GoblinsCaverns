@@ -18,6 +18,8 @@ from components.dice import DiceRoll
 def main():
     constants = get_constants()
 
+    # Font and Background image
+    main_menu_background_image = tcod.image_load('menu_background.png')
     tcod.console_set_custom_font('arial10x10.png', tcod.FONT_TYPE_GREYSCALE | tcod.FONT_LAYOUT_TCOD)
 
     root_con = tcod.console_init_root(constants["screen_width"], constants["screen_height"],
@@ -35,7 +37,6 @@ def main():
     show_main_menu = True
     show_load_error_message = False
 
-    main_menu_background_image = tcod.image_load('menu_background.png')
     while show_main_menu:
         main_menu(con, main_menu_background_image, constants['screen_width'],
                   constants['screen_height'], root_con)
@@ -117,7 +118,7 @@ def play_game(player, entities, game_map, message_log, game_state, con, panel, c
                 fullscreen = action.get("fullscreen")
                 show_character_screen = action.get('show_character_screen')
             if isinstance(event, tcod.event.MouseButtonDown):
-                mouse_action = handle_mouse(event, game_state)
+                mouse_action = handle_mouse(event)
                 left_click = mouse_action.get("left_click")
                 right_click = mouse_action.get("right_click")
             if look_enemy and game_state == GameStates.PLAYER_TURN:
