@@ -17,8 +17,6 @@ from components.dice import DiceRoll
 
 def main():
     constants = get_constants()
-
-    # Font and Background image
     main_menu_background_image = tcod.image_load('menu_background.png')
     tcod.console_set_custom_font('arial10x10.png', tcod.FONT_TYPE_GREYSCALE | tcod.FONT_LAYOUT_TCOD)
 
